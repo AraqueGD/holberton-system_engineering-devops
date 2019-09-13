@@ -1,0 +1,16 @@
+.TH 101-man_holberton
+.SH NAME
+101-man_holberton \- modify files by randomly changing bits, options in the file this man -l holberton rwx--r -wx 
+.SH SYNOPSIS
+-B 101-man_holberton__bits
+[\fB\-n\fR \fIBITS\fR]
+[\fB\-\-bits\fR \fIBITS\fR]
+.IR file ...
+.SH DESCRIPTION
+.B 101-man_holberton 
+modifies files by toggling a randomly chosen bit more bits in the modification in the terminal system and man_holberton.
+.SH OPTIONS
+.TP
+.BR \-n ", " \-\-bits =\fIBITS\fR ", " \-a
+Set the number of bits to modify all selected files and directory owner group=betty,guillome,olleh,hello and more files
+Default is one bit.

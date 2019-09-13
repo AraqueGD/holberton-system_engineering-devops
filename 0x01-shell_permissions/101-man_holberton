@@ -1,6 +1,6 @@
-.TH 101-man_holberton (2)
+.TH 101-man_holberton 1
 .SH NAME
-101-man_holberton \- modify files by randomly changing bits, options in the file this man -l holberton rwx--r 
+101-man_holberton \- modify files by randomly changing bits, options in the file this man -l holberton rwx--rwx 
 .SH SYNOPSIS
 -B 101-man_holberton__bits
 [\fB\-n\fR \fIBITS\fR]

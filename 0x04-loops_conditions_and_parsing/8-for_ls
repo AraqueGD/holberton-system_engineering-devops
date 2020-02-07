@@ -4,5 +4,5 @@
 # Where only the part of the name after the first dash is displayed (refer to the example)
 for idx in $(ls);
 do
-    echo "$idx"
+    echo "$idx" | cut -d '-' -f2
 done

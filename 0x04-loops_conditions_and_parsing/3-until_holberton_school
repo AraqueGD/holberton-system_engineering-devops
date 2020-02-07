@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displays Holberton School 10 times with 'Until'.
+let idx=0
+until [ $idx -ge 10 ];
+do
+    echo "Holberton School"
+    let idx=idx+1
+done

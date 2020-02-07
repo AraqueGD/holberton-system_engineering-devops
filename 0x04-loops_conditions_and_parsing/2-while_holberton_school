@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Displays Holberton School 10 times With 'While'.
+let idx=1
+while [ $idx -le 10 ];
+do
+    echo "Holberton School"
+    let idx=idx+1
+done

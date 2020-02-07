@@ -5,9 +5,10 @@ if [[ -e $file ]]; then
     echo "holbertonschool file exists"
     if [[ -s $file ]]; then
         echo "holbertonschool file is not empty"
-    elif [[ -n $file ]]; then
+    else
         echo "holbertonschool file is empty"
-    elif [[ -f $file ]]; then
+    fi
+    if [[ -f $file ]]; then
         echo "holbertonschool is a regular file"
     fi
 else

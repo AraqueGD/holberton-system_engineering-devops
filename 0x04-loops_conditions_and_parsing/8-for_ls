@@ -2,7 +2,8 @@
 # The content of the current directory
 # In a list format
 # Where only the part of the name after the first dash is displayed (refer to the example)
-for idx in $(ls);
+list=$(ls)
+for idx in $list;
 do
     echo "$idx" | cut -d '-' -f2
 done

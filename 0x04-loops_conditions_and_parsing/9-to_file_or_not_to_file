@@ -1,14 +1,13 @@
 #!/usr/bin/env bash
-# Gives you information about the holbertonschool file.
-file="/home/caraque/Holberton/holberton-system_engineering-devops/0x04-loops_conditions_and_parsing/holbertonschool"
-if [[ -e $file ]]; then
+# Gives you information about the holbertonschool holbertonschool.
+if [[ -e holbertonschool ]]; then
     echo "holbertonschool file exists"
-    if [[ -s $file ]]; then
+    if [[ -s holbertonschool ]]; then
         echo "holbertonschool file is not empty"
     else
         echo "holbertonschool file is empty"
     fi
-    if [[ -f $file ]]; then
+    if [[ -f holbertonschool ]]; then
         echo "holbertonschool is a regular file"
     fi
 else

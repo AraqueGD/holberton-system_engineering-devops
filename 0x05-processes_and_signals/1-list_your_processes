@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+ps -U root -u root u

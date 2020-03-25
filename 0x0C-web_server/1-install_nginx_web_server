@@ -11,4 +11,4 @@ sudo ufw allow 'OpenSSH'
 sudo su
 sudo cp /var/www/html/index.nginx-debian.html /var/www/html/bkup_index.nginx-debian.html
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
-sudo systemctl reload nginx
+sudo service start nginx

@@ -8,6 +8,6 @@ file_line { 'Identityfile setup':
 file_line { 'Auth Setup Off':
     ensure   => present,
     path     => '/etc/ssh/ssh_config',
-    line     => 'GSSAPIAuthentication yes',
+    line     => 'PasswordAuthentication no',
     multiple => false,
 }

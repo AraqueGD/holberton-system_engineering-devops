@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Install Nginx and Configure
+# Update Sever
+sudo apt-get update -y
+#Install Nginx
+sudo apt-get -y install nginx
+#Activate Port and SSH
+sudo ufw allow 'Nginx HTTP'
+sudo ufw allow 'OpenSSH'
+#Backup File
+sudo su
+sudo cp /var/www/html/index.nginx-debian.html /var/www/html/bkup_index.nginx-debian.html
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+sudo systemctl reload nginx

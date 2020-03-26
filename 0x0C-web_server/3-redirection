@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Configures NGINX
-sudo apt-get update -y
-sudo apt-get install nginx -y
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
-new_string="server_name _;\n\trewrite ^\/redirect_me google.com permanent;"
-sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
-service nginx start
+apt-get update
+apt-get -y install nginx
+echo "Holberton School" | tee /usr/share/nginx/html/index.html
+URL=/etc/nginx/sites-available/default
+RED="location /redirect_me {\n return 301 https://www.youtube.com/watch?v=POglcuW-Rb4;\n}\n"
+sed -i "37i $RED" $URL
+service nginx restart

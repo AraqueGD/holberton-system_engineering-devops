@@ -8,7 +8,7 @@ sudo apt-get -y install nginx
 sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 'OpenSSH'
 #Backup File
-sudo su
 sudo cp /var/www/html/index.nginx-debian.html /var/www/html/bkup_index.nginx-debian.html
+sudo su
 echo "Holberton School" > /var/www/html/index.nginx-debian.html
 sudo service start nginx

@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-# Command Resolve Problem.
-service apache2 start

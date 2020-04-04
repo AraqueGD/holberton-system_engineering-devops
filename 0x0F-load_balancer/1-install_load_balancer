@@ -15,6 +15,6 @@ backend http_back
         server 1229-web-01 35.227.85.236:80 check
         server 1229-web-02 3.80.76.254:80 check
 "
-echo $config >> /etc/haproxy/haproxy.cfg
+echo "$config" >> /etc/haproxy/haproxy.cfg
 echo "ENABLED=1" >> /etc/default/haproxy
 service haproxy start

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Command whoami
+user="$1"
+if [ $# -lt 1 ]; then
+    echo "USAGE: One Argument"
+else
+    sudo -u "$user" whoami
+fi

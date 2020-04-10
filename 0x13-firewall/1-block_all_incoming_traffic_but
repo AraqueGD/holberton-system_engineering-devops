@@ -1,0 +1,5 @@
+# Config Firewall "ufw"
+ufw enable
+ufw allow 22/tcp
+ufw allow http/tcp
+ufw allow https/tcp

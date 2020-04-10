@@ -2,4 +2,4 @@
 
 ### Read or watch:
 
-- ![N|Solid]What is a firewall(https://en.wikipedia.org/wiki/Firewall_(computing))
+- What is a firewall (https://en.wikipedia.org/wiki/Firewall_(computing))

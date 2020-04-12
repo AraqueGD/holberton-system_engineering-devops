@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
-inf_domi() {
+info_custom ()
+{
     for arg
     do
 	echo -n "The subdomain $arg is a "
-	dig $arg."$domi" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print $4 " record and points to " $5}'
+	dig $arg."$domain" | grep -A1 'ANSWER SECTION:' | tail -n 1 | awk '{print $4 " record and points to " $5}'
     done
 }
-domi="$1"
-if [ $# -lt 1 ]; then
-    echo "Usage: 1-world_wide_web DOMAIN SUBDOMAIN(optional)"
-elif [ $# -eq 1 ]; then
-    inf_domi www lb-01 web-01 web-02
+
+domain="$1"
+if [ $# -eq 1 ]; then
+    info_custom www lb-01 web-01 web-02
 else
-    sub_domi="$2"
-    inf_domi "$sub_domi"
+    sbdmain="$2"
+    info_custom "$sbdmain"
 fi

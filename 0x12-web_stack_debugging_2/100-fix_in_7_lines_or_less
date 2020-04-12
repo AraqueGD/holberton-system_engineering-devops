@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # User nginx Advanced.
 chmod 204 /etc/nginx/nginx.conf
-sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
-pkill -f apache2
-sudo -u nginx service nginx start
+sed -i 's/80/8080/' /etc/nginx/sites-enabled/default
+pkill apache2
+sudo -u nginx service nginx restart

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Print A Record.
 info_custom ()
 {
     for arg

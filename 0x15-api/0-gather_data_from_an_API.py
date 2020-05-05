@@ -2,11 +2,12 @@
 if __name__ == "__main__":
     import requests
     from sys import argv
-    user_id = int(argv[1])
+    user_id = argv[1]
+    id_int = int(user_id)
     url_todo = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(user_id))
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(id_int))
     url_user = requests.get(
-        'https://jsonplaceholder.typicode.com/users?id={}'.format(user_id))
+        'https://jsonplaceholder.typicode.com/users?id={}'.format(id_int))
 
     js_todo = url_todo.json()
     js_user = url_user.json()

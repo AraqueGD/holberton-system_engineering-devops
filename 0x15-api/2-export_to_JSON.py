@@ -26,15 +26,16 @@ if __name__ == "__main__":
     user_data = req_user.json()
     emp_name = user_data[0].get('name')
 
-    list_in_dict = []
-    dict_user = {}
-    with open('{}.json'.format(int_id), 'w') as file_json:
-        for info in total_tasks:
-            dict_json = {}
-            dict_json['task'] = info.get('title')
-            dict_json['completed'] = info.get('completed')
-            dict_json['username'] = emp_name
-            list_in_dict.append(dict_json)
-        dict_user[int_id] = list_in_dict
-        inf = json.dumps(dict_user)
-        file_json.write(inf)
+    list_dict = []
+    user_tasks = {}
+
+    with open('{}.json'.format(empId), 'w') as json_file:
+        for task in total_tasks:
+            task_info = {}
+            task_info['task'] = task.get('title')
+            task_info['completed'] = task.get('completed')
+            task_info['username'] = emp_name
+            list_dict.append(task_info)
+        user_tasks[empId] = list_dict
+        info = json.dumps(user_tasks)
+        json_file.write(info)

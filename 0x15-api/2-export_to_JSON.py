@@ -28,9 +28,9 @@ if __name__ == "__main__":
 
     list_in_dict = []
     dict_user = {}
-    dict_json = {}
     with open('{}.json'.format(int_id), 'w') as file_json:
         for info in total_tasks:
+            dict_json = {}
             dict_json['task'] = info.get('title')
             dict_json['completed'] = info.get('completed')
             dict_json['username'] = emp_name

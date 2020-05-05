@@ -14,8 +14,8 @@ if __name__ == "__main__":
     except ValueError:
         print('Not Exists JSON')
 
+    name_user = js_user[0].get('name')
     if (js_todo and js_user):
-        name_user = js_user[0].get('name')
         done_task = []
         for task in js_todo:
             if (task.get('completed') is True):

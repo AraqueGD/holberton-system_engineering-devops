@@ -3,6 +3,7 @@
 if __name__ == "__main__":
     import requests
     from sys import argv
+    import csv
     """ Program Entry point """
     empId = argv[1]
     int_id = int(empId)
@@ -26,6 +27,8 @@ if __name__ == "__main__":
     emp_name = user_data[0].get('name')
 
     with open('{}.csv'.format(int_id), 'w') as file_task:
+        style_write = csv.writer(
+            file_task, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for write in total_tasks:
-            file_task.write('"{}","{}","{}","{}"\n'.format(
-                int_id, emp_name, write.get('completed'), write.get('title')))
+            style_write.writerow(
+                [int_id, emp_name, write.get('completed'), write.get('title')])

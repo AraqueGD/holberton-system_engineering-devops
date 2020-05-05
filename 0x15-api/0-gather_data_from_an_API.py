@@ -1,28 +1,30 @@
 #!/usr/bin/python3
+import requests
+from sys import argv
+
 if __name__ == "__main__":
-    import requests
-    from sys import argv
-    user_id = argv[1]
-    int_id = int(user_id)
-    url_todo = 'https://jsonplaceholder.typicode.com/todos?userId=' + user_id
-    url_user = 'https://jsonplaceholder.typicode.com/users?id=' + user_id
+    """ Program Entry point """
+    empId = argv[1]
+    url_todo = 'https://jsonplaceholder.typicode.com/todos'
+    url_user = 'https://jsonplaceholder.typicode.com/users'
+    payload1 = {'userId': empId}
+    payload2 = {'id': empId}
 
-    r_todo = requests.get(url_todo)
-    r_user = requests.get(url_user)
+    req_todo = requests.get(url_todo, params=payload1)
+    req_user = requests.get(url_user, params=payload2)
 
-    try:
-        js_todo = r_todo.json()
-        js_user = r_user.json()
-    except ValueError:
-        print('Not Exists JSON')
-
-    name_user = js_user[0].get('name')
-    done_task = []
-    for task in js_todo:
+    # Getting the NUMBER_OF_DONE_TASKS and total tasks
+    total_tasks = req_todo.json()
+    done_tasks = []
+    for task in total_tasks:
         if (task.get('completed') is True):
-            done_task.append(task)
+            done_tasks.append(task)
 
-    print("Employee {:s} is done with tasks({:d}/{:d}):".format(name_user,
-                                                                len(done_task), len(js_todo)))
-    for title in done_task:
-        print("\t {}".format(title.get('title')))
+    # Employee name from users
+    user_data = req_user.json()
+    emp_name = user_data[0].get('name')
+
+    print("Employee {:s} is done with tasks({:d}/{:d}):".format(
+        emp_name, len(done_tasks), len(total_tasks)))
+    for task in done_tasks:
+        print("\t {}".format(task.get('title')))

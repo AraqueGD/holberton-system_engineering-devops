@@ -2,15 +2,17 @@
 if __name__ == "__main__":
     import requests
     from sys import argv
-    user_id = argv[1]
-    id_int = int(user_id)
+    user_id = int(argv[1])
     url_todo = requests.get(
-        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(id_int))
+        'https://jsonplaceholder.typicode.com/todos?userId={}'.format(user_id))
     url_user = requests.get(
-        'https://jsonplaceholder.typicode.com/users?id={}'.format(id_int))
+        'https://jsonplaceholder.typicode.com/users?id={}'.format(user_id))
 
-    js_todo = url_todo.json()
-    js_user = url_user.json()
+    try:
+        js_todo = url_todo.json()
+        js_user = url_user.json()
+    except ValueError:
+        print('Not Exists JSON')
 
     if (js_todo and js_user):
         name_user = js_user[0].get('name')

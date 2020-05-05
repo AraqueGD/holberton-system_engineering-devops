@@ -15,11 +15,10 @@ if __name__ == "__main__":
         print('Not Exists JSON')
 
     name_user = js_user[0].get('name')
-    if (js_todo and js_user):
-        done_task = []
-        for task in js_todo:
-            if (task.get('completed') is True):
-                done_task.append(task)
+    done_task = []
+    for task in js_todo:
+        if (task.get('completed') is True):
+            done_task.append(task)
 
     print("Employee {} is done with tasks({}/{}):".format(name_user,
                                                           len(done_task), len(js_todo)))

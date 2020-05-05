@@ -30,5 +30,7 @@ if __name__ == "__main__":
         style_write = csv.writer(
             file_task, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
         for write in total_tasks:
+            completed_task = write.get('completed')
+            title_task = write.get('title')
             style_write.writerow(
-                [int_id, emp_name, write.get('completed'), write.get('title')])
+                [int_id, emp_name, completed_task, title_task])

@@ -1,17 +1,18 @@
 #!/usr/bin/python3
-import requests
-from sys import argv
-
+""" Program that Gather data from an API """
 if __name__ == "__main__":
+    import requests
+    from sys import argv
     """ Program Entry point """
     empId = argv[1]
-    url_todo = 'https://jsonplaceholder.typicode.com/todos'
-    url_user = 'https://jsonplaceholder.typicode.com/users'
-    payload1 = {'userId': empId}
-    payload2 = {'id': empId}
+    int_id = int(empId)
+    url_todo = 'https://jsonplaceholder.typicode.com/todos?userId={}'.format(
+        int_id)
+    url_user = 'https://jsonplaceholder.typicode.com/users?id={}'.format(
+        int_id)
 
-    req_todo = requests.get(url_todo, params=payload1)
-    req_user = requests.get(url_user, params=payload2)
+    req_todo = requests.get(url_todo)
+    req_user = requests.get(url_user)
 
     # Getting the NUMBER_OF_DONE_TASKS and total tasks
     total_tasks = req_todo.json()
@@ -24,7 +25,7 @@ if __name__ == "__main__":
     user_data = req_user.json()
     emp_name = user_data[0].get('name')
 
-    print("Employee {:s} is done with tasks({:d}/{:d}):".format(
+    print("Employee {} is done with tasks({}/{}):".format(
         emp_name, len(done_tasks), len(total_tasks)))
     for task in done_tasks:
         print("\t {}".format(task.get('title')))

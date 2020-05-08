@@ -7,20 +7,21 @@ def recurse(subreddit, hot_list=[], after=""):
     """
         Function Recurse Reddit
     """
-    url = ('https://www.reddit.com/r/{}/hot.json?after={}'.format(subreddit, after))
-    user_agent = {'User-gent': 'My user agent'}
-    r_titles = requests.get(url, headers=user_agent, allow_redirects=False)
+    url_hot = 'https://www.reddit.com/r/{}/hot.json?after={}'.format(
+        subreddit, after)
+    h = {'User-Agent': 'My User Agent'}
+    req = requests.get(url_hot, headers=h, allow_redirects=False)
 
-    if (r_titles.status_code == 200):
-        r_json = r_titles.json()
-        list_title = r_json['data']['children']
-        for title in list_title:
-            hot_list.append(title['data']['title'])
-        after = r_json['data']['children']
+    if (req.status_code == 200):
+        req_json = req.json()
+        data_list = req_json['data']['children']
+        for i in data_list:
+            hot_list.append(i['data']['title'])
+        after = req_json['data']['after']
         if (after is not None):
             recurse(subreddit, hot_list, after)
         else:
-            return(hot_list)
+            return (hot_list)
     else:
         return (None)
     return (hot_list)

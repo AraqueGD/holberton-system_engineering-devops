@@ -6,18 +6,18 @@ The following is the incident report for the Aplication service outage that occu
 On Sunday, at 06:13pm to 07:22pm UTC-5, there was a brief network disruption that impacted a portion of Aplication  service. Normally, this type of networking disruption is handled seamlessly and without change to the performance, as affected storage servers query, process any updates, and reconfirm their availability to accept requests. The issue affected 100% of traffic to this service, all modules were down for a period of 1 hour aprox, and the root cause was an invalid configuration change in the main nginx file.
 
 ## Timeline (all times UTC-5)
-* 06:20pm: service down is detected by a final user
-* 06:22pm: look for error in server log files to detect the issue
-* 06:28pm: Alert all tech and engineering team
-* 06:35pm: Try to restore last backup taken
-* 06:45pm: Try to reconnect data base and config the main nginx file again
-* 07:02pm: Successful configuration change rollback
-* 07:05pm: Server restarts begin
-* 07:10pm: we carry out several tests
-* 07:22pm: 100% of traffic back online
+* 08:00pm: service down is detected by a final user
+* 08:22pm: look for error in server log files to detect the issue
+* 08:29pm: Alert all tech and engineering team
+* 08:36pm: Try to restore last backup taken
+* 08:47pm: Try to reconnect data base and config the main nginx file again
+* 09:08pm: Successful configuration change rollback
+* 09:10pm: Server restarts begin
+* 09:12pm: we carry out several tests
+* 09:16pm: 100% of traffic back online
 
 ## Root Cause, resolution and recovery
-At 5:52PM UTC-5, a configuration change was inadvertently released to our production environment without first being released to the testing enviroment. The change specified an invalid parameter for the performance servers in production nginx file for the proxy reverse. When the service was restarted, this generated a conflict in all service which the company could not open and work the main modules like sales, purchases and inventory. In addition, the internal monitoring systems permanently alert us, but this time it didn't and we overlooked it. Traffic was permanently queued waiting for a serving thread to become available. The file changed was restore as before we had it, commenting the lines added to analyze and test them later. The server began repeatedly hanging and restarting as they attempted to recover and at 07:22 PM UTC-5, the service outage began.
+At 6:00PM UTC-5, a configuration change was inadvertently released to our production environment without first being released to the testing enviroment. The change specified an invalid parameter for the performance servers in production nginx file for the proxy reverse. When the service was restarted, this generated a conflict in all service which the company could not open and work the main modules like sales, purchases and inventory. In addition, the internal monitoring systems permanently alert us, but this time it didn't and we overlooked it. Traffic was permanently queued waiting for a serving thread to become available. The file changed was restore as before we had it, commenting the lines added to analyze and test them later. The server began repeatedly hanging and restarting as they attempted to recover and at 09:16 PM UTC-5, the service outage began.
 
 ## Corrective and Preventative Measures
 In the last two days, we’ve conducted an internal review and analysis of the outage. The following are actions we are taking to address the underlying causes of the issue and to help prevent recurrence and improve response times:
